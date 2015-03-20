@@ -1,6 +1,9 @@
-/*
- *
- */
+
+/* Life Simulation Program
+* Author: Gregory E. Hatt Jr.
+* Date: November 20th, 2014
+* Email: ghattjr@gmail.com
+*/
 
 #include "Lion.h"
 #include "World.h"
@@ -27,7 +30,13 @@ int Lion::getType()
 }
 
 
-
+// spawn()
+//=========================================
+// If a spot is available and the lion is able
+// to breed then a new lion is created in an 
+// adjacent cell. Otherwhise the breed counter
+// is simply increased.
+//=========================================
 void Lion::spawn()
 {
 
@@ -67,11 +76,16 @@ void Lion::spawn()
       // Check if the lion has not eaten in a number of days.
     if(daysSinceEating >= LION_NO_EAT_DAYS) {
         starve();
-	return;
+		return;
     }
 
 }
 
+// move()
+//=========================================
+// Will either move the lion to a cell containing
+// an ant to eat or will move to an empty cell.
+//=========================================
 void Lion::move()
 {
     moved = true;
@@ -86,6 +100,11 @@ void Lion::move()
      
 }
 
+// starve()
+//=========================================
+// Remove the lion from the grid and decrement
+// the organism count of the world.
+//=========================================
 void Lion::starve()
 {
 	world->setRemLions(world->getRemLions() - 1);
@@ -93,7 +112,12 @@ void Lion::starve()
 
 }
 
-
+// eatMove()
+//=========================================
+// Moves the lion to an adjacent cell containing
+// an ant to eat. Different from a non-eat move
+// in that the lion can east in all directions
+//=========================================
 void Lion::eatMove(vector< Directions > eatMoves)
 {
 

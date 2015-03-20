@@ -69,7 +69,6 @@
     <ClCompile Include="Lion.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Organism.cpp" />
-    <ClCompile Include="Source.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -21,35 +21,30 @@ Organism::~Organism()
 
 }
 
-
+// getMoves()
+// ======================================
+// Returns a vector of available free positions
+// in a cross pattern surrounding the organism.
+// ======================================
 vector< Directions > Organism::getMoves()
-{
-  
-    vector< Directions> moves;		// holds available moves
+{ 
+    vector< Directions> moves;	
 
-    if(row > 0) {
-        if(world->getOrg(row - 1, col) == NULL) {
+    if(row > 0) 
+        if(world->getOrg(row - 1, col) == NULL) 
             moves.push_back(North);
-        }
-    }
-
-    if(row < GRID_H - 1) {
-        if(world->getOrg(row + 1, col) == NULL) {
+        
+    if(row < GRID_H - 1) 
+        if(world->getOrg(row + 1, col) == NULL) 
             moves.push_back(South);
-        }
-    }
-
-    if(col < GRID_W - 1) {
-        if(world->getOrg(row, col + 1) == NULL) {
+        
+    if(col < GRID_W - 1) 
+        if(world->getOrg(row, col + 1) == NULL) 
             moves.push_back(East);
-        }
-    }
-
-    if(col > 0) {
-        if(world->getOrg(row, col - 1) == NULL) {
+        
+    if(col > 0) 
+        if(world->getOrg(row, col - 1) == NULL) 
             moves.push_back(West);
-        }
-    }
 
     return moves;
 }
